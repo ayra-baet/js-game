@@ -37,7 +37,7 @@ body {
 }
 
 .screen.active {
-    display: none;
+    display: block;
 }
 
 /* START SCREEN */
@@ -54,10 +54,6 @@ body {
 }
 
 /* QUIZ SCREEN */
-/* TODO: Remove #quiz-screen later */
-#quiz-screen {
-    display: block;
-}
 .quiz-header {
     margin-bottom: 1rem;
 }
@@ -75,4 +71,28 @@ body {
     justify-content: space-between;
     color: #666;
     margin-bottom: 10px;
+}
+
+.answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.answer-btn {
+    font:inherit;
+    text-align: left;
+    color: #333;
+    background: #f8f0e5;
+    padding: 1rem;
+    border: 2px solid #eadbc8;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answer-btn:hover {
+    background: #eadbc8;
+    border-color: #dac0ae;
 }
