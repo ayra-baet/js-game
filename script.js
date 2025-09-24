@@ -130,10 +130,3 @@ function selectAnswer(event) {
         showQuestion();
     }, 1000);
 }
-/*
-"Perfect! You're a genius!"
-"Great job! You know your stuff"
-"Good effort! Keep learning!"
-"Not bad! Try again to improve!"
-"Keep studying! You'll get better!"
-*/
