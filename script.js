@@ -82,15 +82,58 @@ function startQuiz() {
 }
 
 function showQuestion() {
+    answersDisabled = false;
+
     const currentQuestion = quizQuestions[currentQuestionIndex];
     questionText.textContent = currentQuestion.question;
     currentQuestionSpan.textContent = currentQuestionIndex + 1;
+
+    const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+
+    answersContainer.innerHTML = "";
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.textContent = answer.text;
         button.classList.add("answer-btn");
 
+        button.dataset.correct = answer.correct;
+        button.addEventListener("click", selectAnswer);
+
         answersContainer.append(button);
     });
 }
+
+function selectAnswer(event) {
+    if (answersDisabled) return;
+    answersDisabled = true;
+
+    const selectedButton = event.target;
+    const isCorrect = selectedButton.dataset.correct === "true";
+
+    Array.from(answersContainer.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        } else if (button === selectedButton) {
+            button.classList.add("incorrect");
+        }
+    });
+
+    if (isCorrect) {
+        score++;
+        scoreSpan.textContent = score;
+    }
+
+    setTimeout(() => {
+        currentQuestionIndex++;
+        showQuestion();
+    }, 1000);
+}
+/*
+"Perfect! You're a genius!"
+"Great job! You know your stuff"
+"Good effort! Keep learning!"
+"Not bad! Try again to improve!"
+"Keep studying! You'll get better!"
+*/
