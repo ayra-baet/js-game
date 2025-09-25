@@ -122,3 +122,44 @@ body {
     width: 0%;
     transition: width 0.3s ease;
 }
+
+/* RESULT SCREEN */
+.result-screen h2 {
+    font-size: 2rem;
+    color: #e86a33;
+    margin-bottom: 30px;
+}
+
+.result-info {
+    background: #f8f0e5;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.result-info p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.result-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color:  #e86a33;
+}
+
+button {
+    font-size: 1.1rem;
+    background: #e86a33;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #d45b28;
+}
